@@ -1,9 +1,22 @@
 $(document).ready(function(){
 
+//New Game - Clears Counter
+	function newGame(){
+		var secretNumber = Math.floor(Math.random()*100) + 1; //Gernerates #
+		// console.log('secretNumber', secretNumber); shows secret number in console.
+
+		counter = 0;
+		display.innerHTML = counter;
+
+		$('.guessBox').html(''); //resets html and results
+
+	}
+
 // GRABS RANDOM NUMBER
-// function getRandomNbr(min, max) {
-// 	return Math.floor(Math.random()*100) + 1;
-// }
+	function getRandomNbr(min, max) {
+		return Math.floor(Math.random()*100) + 1;
+
+	}
 
 // COUNTER FOR AMOUNT OF GUESSES
 	var counter = 0;
@@ -12,8 +25,8 @@ $(document).ready(function(){
 	var display = document.getElementById('count');
 
 	button.onclick = function(){
-		count ++;
-		display.innerHTML = count;
+		counter ++;
+		display.innerHTML = counter;
 	}
 
 // LISTS GUESSED NUMBERS
@@ -25,14 +38,10 @@ $(document).ready(function(){
 	});
 	
 
-
-
-// function newGame(){
-// 	document.getElementById('game').style.display = //NEW GAME SCREEN;
-	//regenerate new number to guess
-// }
-
-
+//Click New Game 
+	$('.new').click(function(){
+		newGame();
+	})
 	
 	/*--- Display information modal box ---*/
   	$(".what").click(function(){
@@ -45,6 +54,7 @@ $(document).ready(function(){
   		$(".overlay").fadeOut(1000);
   	});
 
+  	newGame();
 });
 
 
